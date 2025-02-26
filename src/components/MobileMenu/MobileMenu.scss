@@ -1,0 +1,58 @@
+@use '../../styles/colors.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.mobile_menu {
+  display: none;
+  z-index: 30;
+  inset: 0; // Використання короткої властивості
+  height: 100vh;
+  position: fixed;
+  background-color: $gray-black;
+
+  @include onMobile {
+    display: block;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    height: 100vh;
+  }
+
+  &_item {
+    font-size: 12px;
+    line-height: 11px;
+    color: $secondary;
+    font-weight: 800;
+    transition: color 0.5s ease;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -250%;
+      height: 3px;
+      background-color: $white;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    &:hover,
+    &.active {
+      color: $white;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &-icons {
+    display: flex;
+  }
+}

@@ -1,0 +1,115 @@
+@use '../../styles/colors' as *;
+@use '../../styles/mixins.scss' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 24px;
+  align-items: center;
+  position: relative;
+  height: 64px;
+  z-index: 50;
+
+  &_border {
+    border-bottom: 1px solid $gray-border;
+    position: relative;
+    z-index: 50;
+  }
+
+  &_wrapper {
+    &-list {
+      display: flex;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    &-icon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include onMobile {
+        display: none;
+      }
+    }
+
+    &-burger {
+      display: none;
+      z-index: 31;
+
+      @include onMobile {
+        display: block;
+      }
+
+      &-border {
+        border-left: 1px solid $gray-border;
+        position: absolute;
+        top: 0;
+        right: 65px;
+        bottom: 0;
+      }
+    }
+
+    &-border-heart {
+      border-left: 1px solid $gray-border;
+      position: absolute;
+      right: 107px;
+      top: 0;
+      bottom: 0;
+    }
+
+    &-border-cart {
+      border-left: 1px solid $gray-border;
+      position: absolute;
+      top: 0;
+      right: 53px;
+      bottom: 0;
+    }
+  }
+
+  &_list {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+
+    @include tablet {
+      gap: 32px;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &_item {
+    font-size: 12px;
+    line-height: 11px;
+    color: $secondary;
+    font-weight: 800;
+    transition: color 0.5s ease;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -250%;
+      height: 3px;
+      background-color: $white;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    &:hover,
+    &.active {
+      color: $white;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
