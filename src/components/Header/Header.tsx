@@ -12,6 +12,7 @@ import HeaderIcons from './HeaderIcons/HeaderIcons';
 
 const Header = () => {
   const [openBurgerMenu, setOpenBurgerMenu] = useState(false);
+
   return (
     <>
       <div className="header">
