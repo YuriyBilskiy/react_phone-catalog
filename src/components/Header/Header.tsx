@@ -1,5 +1,4 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../../public/icons/Logo.svg';
 import { headerLink } from '../../constants/headerLink';
@@ -17,7 +16,9 @@ const Header = () => {
     <>
       <div className="header">
         <div className="header_wrapper-list">
-          <img src={logo} alt="Logo" className="header_img" />
+          <Link to="/">
+            <img src={logo} alt="Logo" className="header_img" />
+          </Link>
           <ul className="header_list">
             {headerLink.map(link => (
               <NavLink className="header_item" to={link.path} key={link.path}>
@@ -36,13 +37,12 @@ const Header = () => {
           ) : (
             <BurgerOpenIcon onClick={() => setOpenBurgerMenu(true)} />
           )}
-          <div className="header_wrapper-burger-border"></div>
         </div>
       </div>
       <div className="header_border"></div>
       {openBurgerMenu && (
         <div>
-          <MobileMenu />
+          <MobileMenu setOpenBurgerMenu={setOpenBurgerMenu} />
         </div>
       )}
     </>

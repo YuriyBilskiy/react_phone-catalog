@@ -1,10 +1,58 @@
-@use "./reset" as *;
-@use './colors' as *;
-@use './typography' as *;
-@use './mixins.scss' as *;
+@import './colors';
+@import './mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: Mont, sans-serif;
-  background-color: $gray-black;
+  background-color: $surface-1;
   color: $white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+.container {
+  max-width: 1136px;
+  margin: 0 auto;
+}
+
+@include tablet {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@include on-mobile {
+  .container {
+    padding: 0 16px;
+  }
 }

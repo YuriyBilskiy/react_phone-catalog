@@ -1,3 +1,50 @@
+@use '../../styles/colors' as *;
+@use '../../styles/mixins' as *;
+
 .footer {
   color: white;
+  padding-bottom: 32px;
+  width: 100%;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $gray-border;
+  }
+  &_wrapper {
+  align-items: center;
+
+    max-width: 1136px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    color: $secondary;
+    cursor: pointer;
+  }
+}
+
+@include on-mobile {
+  .footer {
+    &_wrapper {
+      flex-direction: column;
+      gap: 16px;
+      align-items: start;
+    }
+    &_button {
+      display: flex;
+      align-self: center;
+      justify-content: center;
+    }
+    &_img-wrapper {
+      padding: 32px 0;
+    }
+  }
 }

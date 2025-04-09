@@ -1,0 +1,136 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+
+.phone_card {
+  &-wrapper {
+    max-width: 272px;
+    padding: 32px;
+    background-color: $surface-1;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include tablet {
+      max-width: 237px;
+    }
+  }
+  &-img {
+    max-width: 208px;
+    height: 196px;
+    padding-bottom: 24px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &-name {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    padding-bottom: 8px;
+  }
+
+  &-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  &-spec {
+    display: flex;
+    justify-content: space-between;
+
+
+    &-name {
+      color: $secondary;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    &-property {
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+
+  &-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-cart {
+    cursor: pointer;
+    width: 100%;
+    max-width: 163px;
+    height: 40px;
+    padding: 10px 39px;
+    font-size: 14px;
+    font-weight: 700;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: $primary;
+    transition: background-color 0.3s ease;
+
+    @include tablet {
+      padding: 9px 22px;
+      max-width: 127px;
+    }
+
+    &.in-cart {
+      background-color: $secondary;
+      padding: 0 30px;
+    }
+  }
+
+  &-wrap {
+    background-color: $gray-border;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-favourite {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $gray-border;
+    border: none;
+    cursor: pointer;
+  }
+  &-wrap-price {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 140%;
+    position: relative;
+    padding-bottom: 8px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $elements;
+    }
+  }
+  &-fullPrice {
+    text-decoration: line-through;
+    color: $gray;
+    font-weight: 600;
+  }
+}

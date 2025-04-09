@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.scss';
+import { Provider } from 'react-redux';
+import './App';
 import Layout from './components/Layout';
 import {
   HomePage,
@@ -9,18 +10,26 @@ import {
   FavouritesPage,
   CartPage,
 } from './pages';
+import { store } from './store/store';
+const routes = [
+  { path: '/', element: <HomePage /> },
+  { path: '/phones', element: <PhonesPage /> },
+  { path: '/tablets', element: <TabletsPage /> },
+  { path: '/accessories', element: <AccessoriesPage /> },
+  { path: '/favourites', element: <FavouritesPage /> },
+  { path: '/cart', element: <CartPage /> },
+];
 
 export const App = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/phones" element={<PhonesPage />} />
-        <Route path="/tablets" element={<TabletsPage />} />
-        <Route path="/accessories" element={<AccessoriesPage />} />
-        <Route path="/favorites" element={<FavouritesPage />} />
-        <Route path="/cart" element={<CartPage />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          {routes.map(({ path, element }) => (
+            <Route key={path} path={path} element={element} />
+          ))}
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );

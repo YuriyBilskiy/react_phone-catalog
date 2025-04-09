@@ -1,0 +1,16 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+
+.cart_page {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 80px;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include on-mobile {
+    display: block;
+  }
+}

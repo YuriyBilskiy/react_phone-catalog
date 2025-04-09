@@ -1,0 +1,68 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+
+.cart_details {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  background-color: $surface-1;
+  margin-bottom: 16px;
+  padding: 24px;
+  &-image {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+  }
+  &-minus {
+    height: 2px;
+    color: $gray-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 15px 10px;
+
+    &-active {
+      cursor: pointer;
+      height: 2px;
+      padding: 15px 10px;
+      color: $gray-border;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &-wrap-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid $gray-border;
+    border-radius: 10%;
+    cursor: pointer;
+    &-active {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid $gray-border;
+      border-radius: 10%;
+      cursor: pointer;
+      background-color: $gray-border;
+    }
+  }
+  &-plus {
+    border: 1px solid $gray-border;
+    border-radius: 10%;
+    background-color: $gray-border;
+    &-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 7px;
+    }
+  }
+  &-close-button {
+    cursor: pointer;
+    padding: 3px;
+  }
+}

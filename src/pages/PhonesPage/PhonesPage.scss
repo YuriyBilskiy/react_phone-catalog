@@ -1,0 +1,7 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+
+.phones_page {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

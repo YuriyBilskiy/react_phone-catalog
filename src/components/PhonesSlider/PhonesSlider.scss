@@ -1,0 +1,88 @@
+@import '../../styles/colors';
+@import '../../styles/mixins';
+
+.phone_slider {
+  &-header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  &-header-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: $gray-border;
+    border: 1px solid $gray-border;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: transparent;
+      border: 1px solid $gray-border;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &-wrap-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  &-title {
+    font-weight: 800;
+    font-size: 32px;
+  }
+
+  &-container {
+    width: 100%;
+    margin-bottom: 80px;
+    overflow: hidden;
+    position: relative;
+
+    @include on-mobile {
+      margin-bottom: 64px;
+    }
+  }
+
+  &-track {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: calc(100% + 16px);
+    margin-right: -16px;
+  }
+
+  &-track > * {
+    flex: 0 0 calc(25% - 12px);
+    margin-right: 16px;
+  }
+
+  &-track > *:last-child {
+    margin-right: 0;
+  }
+}
+
+@include tablet {
+  .phone_slider {
+    &-title {
+      font-size: 24px;
+    }
+
+    &-track > * {
+      flex: 0 0 calc(50% - 8px);
+    }
+  }
+}
+
+@include on-mobile {
+  .phone_slider {
+    &-track > * {
+      flex: 0 0 100%;
+    }
+  }
+}

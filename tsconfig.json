@@ -1,10 +1,16 @@
 {
   "extends": "@mate-academy/students-ts-config",
   "include": [
-    "src"
+    "src",
+    "public/icons/**/*.tsx"
   ],
   "compilerOptions": {
     "sourceMap": false,
     "types": ["node", "cypress"]
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".eslintrc.cjs"
+  ]
 }
